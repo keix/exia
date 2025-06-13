@@ -12,7 +12,7 @@ import (
 
 type User struct {
     ID   uint   `json:"id" gorm:"primaryKey"`
-    FirstName string `json:"name" gorm:"size:100;not null"`
+    Name string `json:"name" gorm:"size:100;not null"`
     Age  uint8  `json:"age"`
 }
 
