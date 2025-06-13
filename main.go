@@ -13,18 +13,7 @@ import (
 type User struct {
     ID   uint   `json:"id" gorm:"primaryKey"`
     FirstName string `json:"name" gorm:"size:100;not null"`
-    lastName string `json:"name" gorm:"size:100;not null"`
     Age  uint8  `json:"age"`
-}
-
-func (u User) FullName() string {
-    return u.FirstName + " " + u.LastName
-}
-
-func UserDTO struct {
-    ID        uint   `json:"id"`
-    FullName  string `json:"full_name"`
-    Age       uint8  `json:"age"`
 }
 
 func main() {
