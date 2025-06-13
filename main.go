@@ -37,19 +37,6 @@ func main() {
         c.JSON(http.StatusOK, users)
     })
 
-    r.POST("/users", func(c *gin.Context) {
-        var u User
-        if err := c.ShouldBindJSON(&u); err != nil {
-            c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-            return
-        }
-        if err := db.Create(&u).Error; err != nil {
-            c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-            return
-        }
-        c.JSON(http.StatusCreated, u)
-    })
-
     log.Println("listening on :8080")
     if err := r.Run(":8080"); err != nil {
         log.Fatal(err)
